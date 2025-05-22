@@ -1,0 +1,381 @@
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #121212;
+    color: #f1f1f1;
+    margin: 0;
+    padding: 0;
+    background-attachment: fixed;
+  }
+  
+  .navbar {
+    background-color: #1a1a1a !important;
+    padding: 1rem 0;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+  }
+  
+  .navbar .container-fluid {
+    padding: 0 2rem;
+  }
+  
+  .navbar-brand,
+  .nav-link,
+  .btn,
+  .form-control {
+    color: #f1f1f1 !important;
+  }
+  
+  .form-control {
+    background-color: #2c2c2c;
+    border: 1px solid #444;
+  }
+  
+  .form-control::placeholder {
+    color: #aaa;
+  }
+  
+  .btn-outline-dark {
+    border-color: #f1f1f1;
+    color: #f1f1f1;
+  }
+  
+  .btn-outline-dark:hover {
+    background-color: #f1f1f1;
+    color: #121212;
+  }
+  
+  .btn-outline-light {
+    border-color: black;
+    color: black;
+  }
+  
+  .btn-outline-light:hover {
+    background-color: #f1f1f1;
+    color: #121212;
+  }
+  
+  .fixed-right-nav {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    gap: 10px;
+  }
+  
+  .welcome-text {
+    font-size: 4rem;
+    font-weight: 600;
+    padding-left: 180px;
+    padding-top: 180px;
+    padding-bottom: 200px;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .bg {
+    position: absolute;
+    top: -23px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+    opacity: 0.8;
+  }
+  
+  .footer {
+    text-align: center;
+    height: 5em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* Cards */
+  .cards {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    max-width: 820px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+  }
+  
+  .card {
+    margin: 20px;
+    transition: all .4s cubic-bezier(0.175, 0.885, 0, 1);
+    background-color: #1e1e1e;
+    width: 300px;
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0px 13px 10px -7px rgba(0, 0, 0, 0.3);
+    color: white;
+  }
+  
+  .card__img {
+    visibility: hidden;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 235px;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+  }
+  
+  .card__img--hover {
+    transition: 0.2s all ease-out;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+    position: absolute;
+    height: 235px;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    top: 0;
+  }
+  
+  .card__info {
+    z-index: 2;
+    background-color: #1e1e1e;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+    padding: 16px 24px 24px 24px;
+  }
+  
+  .card:hover .card__img--hover {
+    height: 100%;
+    opacity: 0.3;
+  }
+  
+  .card:hover .card__info {
+    background-color: transparent;
+  }
+  
+  /* Hover effect: Increase size slightly */
+  .card:hover {
+    transform: scale(1.05);
+  }
+  
+  .card__category {
+    font-size: 13px;
+    text-transform: uppercase;
+    color: #aaa;
+  }
+  
+  .card__title {
+    margin-top: 5px;
+    margin-bottom: 10px;
+    font-weight: 600;
+  }
+  
+  .card__by {
+    font-size: 12px;
+  }
+  
+  .card__author {
+    color: #ffc107;
+    text-decoration: none;
+  }
+  
+  .card__clock-info {
+    float: right;
+    font-size: 12px;
+    color: #ccc;
+  }
+
+  .logo {
+    display: flex;
+    position: relative;
+    gap: 25px;
+  }
+  
+  .logo li {
+    position: relative;
+    list-style: none;
+    width: 60px;
+    height: 60px;
+    background: white;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    border-radius: 60px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.5s;
+  }
+  
+  .logo li::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 60px;
+    background: linear-gradient(45deg, var(--i), var(--j));
+    opacity: 0;
+    transition: 0.5s;
+  }
+  
+  .logo li::after {
+    content: "";
+    position: absolute;
+    top: 10px;
+    width: 100%;
+    height: 100%;
+    border-radius: 60px;
+    background: linear-gradient(45deg, var(--i), var(--j));
+    transition: 0.5s;
+    filter: blur(15px);
+    z-index: -1;
+    opacity: 0;
+  }
+  
+  .logo li:hover {
+    width: 180px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0);
+  }
+  
+  .logo li:hover::before {
+    opacity: 1;
+  }
+  
+  .logo li:hover::after {
+    opacity: 0.5;
+  }
+  
+  .logo li ion-icon {
+    color: #777;
+    font-size: 1.75em;
+    transition: 0.5s;
+    transition-delay: 0.25s;
+  }
+  
+  .logo li:hover ion-icon {
+    transform: scale(0);
+    color: #fff;
+    transition-delay: 0s;
+  }
+  
+  .logo li span {
+    position: absolute;
+  }
+  
+  .logo li .title {
+    color: #fff;
+    font-size: 1.1em;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    transform: scale(0);
+    transition: 0.5s;
+    transition-delay: 0s;
+  }
+  
+  .logo li:hover .title {
+    transform: scale(1);
+    transition-delay: 0.25s;
+  }
+
+  .container-fluid {
+    padding-top: 80px; /* Add padding to account for fixed navbar */
+  }
+.navbar .nav-link
+{
+  position: relative;
+  display: inline-block;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  
+}
+
+.navbar .nav-link::after,
+.navbar .btn-outline-light::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -3px;
+  left: 0;
+  background-color: #f1f1f1;
+  transition: width 0.4s ease;
+}
+
+.navbar .nav-link:hover::after,
+.navbar .btn-outline-light:hover::after {
+  width: 100%;
+}
+.logout-btn {
+  background-color: #bdbdbd; /* Merah gelap */
+  color: #fff !important;
+  padding: 6px 16px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.logout-btn:hover {
+  background-color: #ff0000; /* Merah lebih gelap saat hover */
+  transform: scale(1.05);
+}
+.profile-popup {
+  display: none;
+  position: absolute;
+  top: 50px;
+  right: 0;
+  background-color: #1e1e1e;
+  padding: 15px;
+  border-radius: 10px;
+  min-width: 200px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+  z-index: 999;
+}
+
+.profile-popup p {
+  margin: 0;
+  color: white;
+}
+
+.profile-popup .logout-btn {
+  margin-top: 15px;
+  display: block;
+  width: 100%;
+}
+form[role="search"] {
+  margin-bottom: 0 !important;
+}
+
+form[role="search"] .form-control {
+  margin-bottom: 0 !important;
+}
+/* Biar text jadi hitam saat hover + tidak glow putih aneh */
+.btn-outline-light:hover {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+  text-decoration: none;
+  box-shadow: none !important; /* ilangin glow putih */
+}
+
+input[type="search"] {
+  color: black;        /* warna teks saat normal */
+  background-color: white; /* biar background juga putih biar kontras */
+}
+
+/* warna teks saat fokus di input search */
+input[type="search"]:focus {
+  color: black;
+  background-color: white;
+  outline: none; /* opsional, hilangkan garis fokus default */
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* garis biru tipis */
+}
+form input[type="search"].form-control {
+  color: black !important;
+  background-color: white !important;
+}
+input[type="search"]::placeholder {
+  color: #888; /* abu-abu placeholder */
+}

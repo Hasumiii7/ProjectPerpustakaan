@@ -1,0 +1,166 @@
+/* Optimized and minified CSS with modern features */
+:root {
+  --card-bg: rgba(30, 30, 30, 0.95);
+  --card-border: #333;
+  --text-primary: #fff;
+  --text-secondary: #aaa;
+  --accent-color: gold;
+  --shadow-sm: 0 8px 32px 0 rgba(0,0,0,.37);
+  --shadow-lg: 0 12px 32px 0 rgba(0,0,0,.45);
+  --transition: transform .3s ease, box-shadow .3s;
+}
+
+/* Base styles */
+body {
+  background-attachment: fixed;
+  font-family: 'Montserrat', system-ui, -apple-system, sans-serif;
+  color: var(--text-primary);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Layout */
+.book-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+  padding: 2rem;
+  justify-items: center;
+  contain: layout style paint;
+}
+
+/* Card styles */
+.book-card {
+  width: 300px;
+  height: 420px;
+  background: var(--card-bg);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  transition: var(--transition);
+  border: 1.5px solid var(--card-border);
+  will-change: transform;
+  contain: content;
+}
+
+.book-card:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Image optimization */
+.book-image {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  background: #222;
+  aspect-ratio: 16/9;
+  contain: strict;
+}
+
+/* Content styles */
+.book-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 1.2rem;
+  color: var(--text-primary);
+  contain: content;
+}
+
+.book-title {
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  min-height: 2.5em;
+  line-height: 1.2em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  contain: content;
+}
+
+.book-description {
+  font-size: 0.95rem;
+  opacity: 0.9;
+  min-height: 3.2em;
+  max-height: 3.2em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-bottom: 0.5rem;
+  contain: content;
+}
+
+.book-author {
+  font-size: 0.98rem;
+  color: var(--accent-color);
+  margin-bottom: 0.2rem;
+}
+
+.book-category {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+.page-title {
+  color: var(--text-primary);
+  text-align: center;
+  margin: 2rem 0;
+  font-weight: 600;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Loading states */
+.book-card.loading {
+  animation: pulse 1.5s infinite;
+}
+.bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: blur(4px);
+  opacity: 0.3;
+  z-index: 0;
+  pointer-events: none;
+}
+
+@keyframes pulse {
+  0% { opacity: 1; }
+  50% { opacity: 0.7; }
+  100% { opacity: 1; }
+}
+
+/* Responsive optimizations */
+@media (max-width: 768px) {
+  .book-grid {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1rem;
+    padding: 1rem;
+  }
+  
+  .book-card {
+    width: 100%;
+    max-width: 300px;
+  }
+}
+
+/* Print styles */
+@media print {
+  .book-card {
+    break-inside: avoid;
+    box-shadow: none;
+    border: 1px solid #000;
+  }
+  
+  .book-image {
+    max-height: 200px;
+  }
+}
